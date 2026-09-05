@@ -1,0 +1,23 @@
+#keypad{
+    display: flex;
+    gap: 8px;
+    width: 500px;
+    /* height: 10px; */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 100px auto;
+
+}
+
+#keypad button{
+    padding: 0%;
+    width: calc((100% - 16px)/3);
+    height: 100px;
+    font-size: 70px;
+}
+
+#head{
+    font-size: 50px;
+    justify-self: center;
+    color: rgb(187, 51, 51);
+}
