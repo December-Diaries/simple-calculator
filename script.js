@@ -15,6 +15,8 @@ function divide(a,b){
 };
 
 function operate(n1,op,n2){
+    n1=Number(n1);
+    n2=Number(n2);
     switch(op){
         case '+':
             return add(n1,n2);
@@ -43,6 +45,7 @@ let op=null;
 let n2=null;
 
 
+
 keypad.addEventListener('click', (e)=>{
     
     if (e.target.tagName ==='BUTTON'){
@@ -53,20 +56,34 @@ keypad.addEventListener('click', (e)=>{
             n1=null,op=null,n2=null;
             
         }
-
+        
         else{
-            if (Number(value)){
-                display.textContent=(value);
+            if (!isNaN(value)){
+                // display.textContent=(value);
                 if(n1===null){
-                    n1=Number(value);
+                    n1=(value);
                     console.log(n1);
+                    display.textContent=n1;    
                 }
                 else{
                     if(n2===null){
-                        n2=Number(value);
-                        console.log(n2);
-                        
+                        if(op!==null){
+                            n2=value;
+                            console.log(n2);
+                            display.textContent=n2;
+                        }
+                        else{
+                            n1+=value;
+                            console.log(n1);
+                            display.textContent=n1;
+                        }  
                     }
+                    else{
+                        n2+=value;
+                        console.log(n2);
+                        display.textContent=n2; 
+                    }
+
                 }
                 
             }
@@ -80,6 +97,7 @@ keypad.addEventListener('click', (e)=>{
                 else{
                     display.textContent=n1=operate(n1,op,n2);
                     n2=null;
+                    op=null;
                     console.log(n1);    
                 }
             }
